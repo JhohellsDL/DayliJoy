@@ -13,6 +13,7 @@
 
     <string name="hint_word">Sentence…</string>
     <string name="button_save">Save</string>
+    <string name="sentence_saved">Sentence saved!.</string>
     <string name="empty_not_saved">Sentence not saved because it is empty.</string>
     <string name="add_word">Add sentence</string>
 

@@ -27,5 +27,9 @@
         android:id="@+id/newSentenceFragment"
         android:name="com.example.daylijoy.ui.screens.NewSentenceFragment"
         android:label="fragment_new_sentence"
-        tools:layout="@layout/fragment_new_sentence" />
+        tools:layout="@layout/fragment_new_sentence" >
+        <action
+            android:id="@+id/action_newSentenceFragment_to_sentencesFragment"
+            app:destination="@id/sentencesFragment" />
+    </fragment>
 </navigation>
