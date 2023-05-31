@@ -10,4 +10,9 @@
     <string name="logo_desc">Logo de la aplicación</string>
     <string name="add_sentence">Add Sentence</string>
 
+    <string name="hint_word">Sentence…</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Sentence not saved because it is empty.</string>
+    <string name="add_word">Add sentence</string>
+
 </resources>

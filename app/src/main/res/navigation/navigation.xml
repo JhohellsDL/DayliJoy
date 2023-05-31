@@ -18,5 +18,14 @@
         android:id="@+id/sentencesFragment"
         android:name="com.example.daylijoy.ui.screens.SentencesFragment"
         android:label="fragment_sentences"
-        tools:layout="@layout/fragment_sentences" />
+        tools:layout="@layout/fragment_sentences" >
+        <action
+            android:id="@+id/action_sentencesFragment_to_newSentenceFragment"
+            app:destination="@id/newSentenceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newSentenceFragment"
+        android:name="com.example.daylijoy.ui.screens.NewSentenceFragment"
+        android:label="fragment_new_sentence"
+        tools:layout="@layout/fragment_new_sentence" />
 </navigation>
