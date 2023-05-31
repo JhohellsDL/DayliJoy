@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.daylijoy.ui.screens.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_sentencesFragment"
+            app:destination="@id/sentencesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sentencesFragment"
+        android:name="com.example.daylijoy.ui.screens.SentencesFragment"
+        android:label="fragment_sentences"
+        tools:layout="@layout/fragment_sentences" />
+</navigation>
