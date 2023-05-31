@@ -29,7 +29,8 @@ abstract class SentenceRoomDatabase : RoomDatabase() {
                     context.applicationContext,
                     SentenceRoomDatabase::class.java,
                     "sentence_database"
-                ).addCallback(SentenceDatabaseCallback(scope))
+                )
+                    .addCallback(SentenceDatabaseCallback(scope))
                     .build()
                 INSTANCE = instance
                 instance
@@ -39,7 +40,7 @@ abstract class SentenceRoomDatabase : RoomDatabase() {
 
     private class SentenceDatabaseCallback(
         private val scope: CoroutineScope
-    ) : RoomDatabase.Callback() {
+    ) : Callback() {
 
         override fun onCreate(db: SupportSQLiteDatabase) {
             super.onCreate(db)
