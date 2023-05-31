@@ -1,4 +1,4 @@
-package com.example.daylijoy
+package com.example.daylijoy.data
 
 import android.content.Context
 import androidx.room.Database
