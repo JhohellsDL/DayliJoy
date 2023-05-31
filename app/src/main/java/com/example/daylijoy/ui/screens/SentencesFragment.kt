@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.daylijoy.DailyJoyApplication
+import com.example.daylijoy.R
 import com.example.daylijoy.data.entities.SentenceEntity
 import com.example.daylijoy.databinding.FragmentSentencesBinding
 import com.example.daylijoy.ui.adapters.SentencesListAdapter
@@ -42,15 +44,9 @@ class SentencesFragment : Fragment() {
             }
         }
 
-
         binding.floatingButtonAdd.setOnClickListener {
-            sentenceViewModel.insert(
-                SentenceEntity(
-                    sentence = "hola!!!"
-                )
-            )
-            /*val action = R.id.action_sentencesFragment_to_newSentenceFragment
-            it.findNavController().navigate(action)*/
+            val action = R.id.action_sentencesFragment_to_newSentenceFragment
+            it.findNavController().navigate(action)
         }
 
         return binding.root
