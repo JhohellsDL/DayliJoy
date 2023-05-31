@@ -8,5 +8,7 @@ data class SentenceEntity(
 
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val sentence: String
+    val sentence: String,
+    val date: String
+
 )

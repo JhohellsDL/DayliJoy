@@ -1,14 +1,12 @@
 package com.example.daylijoy.ui.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.daylijoy.R
 import com.example.daylijoy.data.entities.SentenceEntity
+import com.example.daylijoy.databinding.SentenceItemBinding
 
 class SentencesListAdapter :
     ListAdapter<SentenceEntity, SentencesListAdapter.SentenceViewHolder>(SentencesComparator()) {
@@ -19,37 +17,22 @@ class SentencesListAdapter :
 
     override fun onBindViewHolder(holder: SentenceViewHolder, position: Int) {
         val current = getItem(position)
-        holder.bind(current.sentence)
+        holder.bind(current)
     }
 
-    class SentenceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val wordItemView: TextView = itemView.findViewById(R.id.text_sentence)
+    class SentenceViewHolder private constructor(val binding: SentenceItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(text: String?) {
-            wordItemView.text = text
+        fun bind(item: SentenceEntity) {
+            binding.textSentence.text = item.sentence
+            binding.textDate.text = item.date
         }
 
         companion object {
             fun create(parent: ViewGroup): SentenceViewHolder {
-                val view: View = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.sentence_item, parent, false)
-                return SentenceViewHolder(view)
-            }
-        }
-    }
-
-    class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val sentenceItemView: TextView = itemView.findViewById(R.id.text_sentence)
-
-        fun bind(text: String?) {
-            sentenceItemView.text = text
-        }
-
-        companion object {
-            fun create(parent: ViewGroup): SentenceViewHolder {
-                val view: View = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.sentence_item, parent, false)
-                return SentenceViewHolder(view)
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = SentenceItemBinding.inflate(layoutInflater, parent, false)
+                return SentenceViewHolder(binding)
             }
         }
     }
