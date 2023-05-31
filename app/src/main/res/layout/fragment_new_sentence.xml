@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.screens.NewSentenceFragment">
 
@@ -11,11 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
-        android:fontFamily="sans-serif-light"
+        android:fontFamily="@font/roboto"
         android:hint="@string/hint_word"
-        android:inputType="textAutoComplete"
         android:layout_margin="16dp"
         android:textSize="18sp"
+        android:inputType="textMultiLine"
+        android:textColor="@color/colorPrimaryText"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
@@ -24,6 +26,9 @@
         android:layout_height="wrap_content"
         android:text="@string/button_save"
         android:layout_margin="16dp"
+        android:textColor="@color/colorBackground"
+        android:backgroundTint="@color/colorSecondary"
         app:layout_constraintTop_toBottomOf="@id/edit_sentence"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
