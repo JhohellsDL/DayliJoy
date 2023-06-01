@@ -1,4 +1,4 @@
-package com.example.daylijoy.data.respositories
+package com.example.daylijoy.data.repositories
 
 import com.example.daylijoy.data.daos.SentenceDao
 import com.example.daylijoy.data.entities.SentenceEntity

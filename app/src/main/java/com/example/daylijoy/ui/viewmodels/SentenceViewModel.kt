@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.daylijoy.data.entities.SentenceEntity
-import com.example.daylijoy.data.respositories.SentenceRepository
+import com.example.daylijoy.data.repositories.SentenceRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

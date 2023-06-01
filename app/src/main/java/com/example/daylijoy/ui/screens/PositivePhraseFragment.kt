@@ -7,17 +7,23 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.example.daylijoy.R
+import com.example.daylijoy.data.providers.PhraseProvider
+import com.example.daylijoy.data.repositories.PhraseRepository
 import com.example.daylijoy.databinding.FragmentPositivePhraseBinding
 
 class PositivePhraseFragment : Fragment() {
 
     private lateinit var binding: FragmentPositivePhraseBinding
 
+    private val provider: PhraseRepository = PhraseRepository(PhraseProvider())
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentPositivePhraseBinding.inflate(inflater)
+
+        binding.textPositivePhrase.text = provider.getPositivePhrase()
 
         binding.botonRegresar.setOnClickListener {
             it.findNavController().navigate(R.id.action_positivePhraseFragment_to_sentencesFragment)
