@@ -24,10 +24,10 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import android.Manifest
 import androidx.core.app.ActivityCompat
 import androidx.core.view.drawToBitmap
-import com.example.daylijoy.R
+import com.jdl.daylijoy.R
 import com.jdl.daylijoy.data.providers.PhraseProvider
 import com.jdl.daylijoy.data.repositories.PhraseRepository
-import com.example.daylijoy.databinding.FragmentPositivePhraseBinding
+import com.jdl.daylijoy.databinding.FragmentPositivePhraseBinding
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException

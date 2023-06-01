@@ -16,9 +16,9 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import com.jdl.daylijoy.DailyJoyApplication
-import com.example.daylijoy.R
+import com.jdl.daylijoy.R
 import com.jdl.daylijoy.data.entities.SentenceEntity
-import com.example.daylijoy.databinding.FragmentNewSentenceBinding
+import com.jdl.daylijoy.databinding.FragmentNewSentenceBinding
 import com.jdl.daylijoy.ui.viewmodels.SentenceViewModel
 import com.jdl.daylijoy.ui.viewmodels.SentenceViewModelFactory
 import com.google.android.material.snackbar.Snackbar

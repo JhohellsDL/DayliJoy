@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.example.daylijoy.R
-import com.example.daylijoy.databinding.FragmentStartBinding
+import com.jdl.daylijoy.R
+import com.jdl.daylijoy.databinding.FragmentStartBinding
 
 class StartFragment : Fragment() {
 
