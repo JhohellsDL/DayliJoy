@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/startFragment"
-        android:name="com.example.daylijoy.ui.screens.StartFragment"
+        android:name="com.jdl.daylijoy.ui.screens.StartFragment"
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/sentencesFragment"
-        android:name="com.example.daylijoy.ui.screens.SentencesFragment"
+        android:name="com.jdl.daylijoy.ui.screens.SentencesFragment"
         android:label="fragment_sentences"
         tools:layout="@layout/fragment_sentences" >
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/newSentenceFragment"
-        android:name="com.example.daylijoy.ui.screens.NewSentenceFragment"
+        android:name="com.jdl.daylijoy.ui.screens.NewSentenceFragment"
         android:label="fragment_new_sentence"
         tools:layout="@layout/fragment_new_sentence" >
         <action
@@ -38,7 +38,7 @@
     </fragment>
     <fragment
         android:id="@+id/positivePhraseFragment"
-        android:name="com.example.daylijoy.ui.screens.PositivePhraseFragment"
+        android:name="com.jdl.daylijoy.ui.screens.PositivePhraseFragment"
         android:label="fragment_positive_phrase"
         tools:layout="@layout/fragment_positive_phrase" >
         <action

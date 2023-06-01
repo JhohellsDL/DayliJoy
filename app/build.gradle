@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.daylijoy'
+    namespace 'com.jdl.daylijoy'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.daylijoy"
+        applicationId "com.jdl.daylijoy"
         minSdk 24
         targetSdk 33
         versionCode 1
