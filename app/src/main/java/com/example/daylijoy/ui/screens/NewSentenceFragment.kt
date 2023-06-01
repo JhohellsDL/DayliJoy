@@ -67,7 +67,7 @@ class NewSentenceFragment : Fragment() {
             )
         }
 
-        val action = R.id.action_newSentenceFragment_to_sentencesFragment
+        val action = R.id.action_newSentenceFragment_to_positivePhraseFragment
 
         binding.buttonSave.setOnClickListener {
             if (listEditText.any {

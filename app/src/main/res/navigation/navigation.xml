@@ -29,7 +29,16 @@
         android:label="fragment_new_sentence"
         tools:layout="@layout/fragment_new_sentence" >
         <action
-            android:id="@+id/action_newSentenceFragment_to_sentencesFragment"
+            android:id="@+id/action_newSentenceFragment_to_positivePhraseFragment"
+            app:destination="@id/positivePhraseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/positivePhraseFragment"
+        android:name="com.example.daylijoy.ui.screens.PositivePhraseFragment"
+        android:label="fragment_positive_phrase"
+        tools:layout="@layout/fragment_positive_phrase" >
+        <action
+            android:id="@+id/action_positivePhraseFragment_to_sentencesFragment"
             app:destination="@id/sentencesFragment" />
     </fragment>
 </navigation>
