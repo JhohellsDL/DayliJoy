@@ -23,6 +23,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import android.Manifest
 import androidx.core.app.ActivityCompat
+import androidx.core.view.drawToBitmap
 import com.example.daylijoy.R
 import com.example.daylijoy.data.providers.PhraseProvider
 import com.example.daylijoy.data.repositories.PhraseRepository
@@ -48,34 +49,12 @@ class PositivePhraseFragment : Fragment() {
         binding.textPositivePhrase.text = provider.getRandomPositivePhrase()
 
         imageView = binding.imageView
-        val imagePath = "/storage/self/primary/Pictures/.thumbnails/1000000002.jpg"
-
-        /*// Cargar y mostrar la imagen utilizando Glide
-        Glide.with(this)
-            .load(File(imagePath))
-            .diskCacheStrategy(DiskCacheStrategy.NONE)
-            .skipMemoryCache(true)
-            .into(imageView)*/
-
 
         binding.btnShare.setOnClickListener {
-            val screenshot = takeScreenshot(binding.root)
-
-            // Guardar la imagen en almacenamiento externo
+            shareAppLink()
+            /*val screenshot = takeScreenshot(binding.root)
             val imagePath = saveImage(screenshot)
-
-            // Compartir la imagen
-            shareImage(imagePath!!)
-
-            // Guardar la imagen en almacenamiento externo
-
-            /*val message = "¡Hoy tuve un día increíble! Registré 5 cosas buenas en mi app. #CosasBuenas #Positividad"
-
-            val intent = Intent(Intent.ACTION_SEND)
-            intent.type = "text/plain"
-            intent.putExtra(Intent.EXTRA_TEXT, message)
-
-            startActivity(Intent.createChooser(intent, "Compartir con"))*/
+            shareImage(imagePath!!)*/
         }
 
         binding.botonRegresar.setOnClickListener {
@@ -84,36 +63,10 @@ class PositivePhraseFragment : Fragment() {
 
         return binding.root
     }
-    private fun isStoragePermissionGranted(): Boolean {
-        if (ContextCompat.checkSelfPermission(
-                requireContext(),
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(
-                    requireActivity(),
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                )
-            ) {
-                // User has already been asked for the permission and denied it.
-                // Show a dialog to explain why the permission is needed.
-            } else {
-                // Request the permission.
-                ActivityCompat.requestPermissions(
-                    requireActivity(),
-                    arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                    REQUEST_PERMISSION
-                )
-                return false
-            }
-        }
-        return true
-    }
 
     private fun takeScreenshot(view: View): Bitmap {
-        val screenshot = view.getDrawingCache() ?: Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+        val screenshot = Bitmap.createBitmap(view.width, view.height-400, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(screenshot)
-        val backgroundColor = view.background?.run { this } ?: Color.WHITE
         canvas.drawColor(Color.WHITE)
         view.draw(canvas)
         return screenshot
@@ -152,43 +105,20 @@ class PositivePhraseFragment : Fragment() {
         startActivity(Intent.createChooser(intent, "Compartir imagen"))
     }
 
-    /*private fun takeScreenshot(): Bitmap {
-        val screenshot = view?.let { Bitmap.createBitmap(it.width, it.height, Bitmap.Config.ARGB_8888) }
-        val canvas = Canvas(screenshot!!)
-        //val backgroundColor = view?.background?.run { this } ?: Color.WHITE
-        canvas.drawColor(Color.WHITE)
-        view?.draw(canvas)
-        return screenshot
+    private fun shareAppLink() {
+        val appPackageName = requireContext() // Obtén el nombre de tu paquete de la aplicación
+
+        try {
+            val shareIntent = Intent(Intent.ACTION_SEND)
+            shareIntent.type = "text/plain"
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Compartir")
+            var message = "¡Echa un vistazo a esta increíble aplicación!\n\n"
+            message += "https://play.google.com/store/apps/details?id=com.jdl.reegresionlinealapp"
+            shareIntent.putExtra(Intent.EXTRA_TEXT, message)
+            startActivity(Intent.createChooser(shareIntent, "Compartir en"))
+        } catch (e: Exception) {
+            // Manejo de errores
+        }
     }
-
-    private fun saveImage(image: Bitmap): String {
-        val storageDir = requireActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        val imageFile = File.createTempFile("screenshot", ".jpg", storageDir)
-        val outputStream = FileOutputStream(imageFile)
-        image.compress(Bitmap.CompressFormat.JPEG, 90, outputStream)
-        outputStream.close()
-        // Cargar y mostrar la imagen utilizando Glide
-        Glide.with(this)
-            .load(File(imageFile.absolutePath))
-            .diskCacheStrategy(DiskCacheStrategy.NONE)
-            .skipMemoryCache(true)
-            .into(imageView)
-        Log.i("asd","-- ${imageFile.absolutePath}")
-        return imageFile.absolutePath
-
-    }
-
-    private fun shareImage(imagePath: String) {
-        val imageUri = Uri.parse(imagePath)
-
-        val intent = Intent(Intent.ACTION_SEND)
-        intent.type = "image/jpeg"
-        intent.putExtra(Intent.EXTRA_STREAM, imageUri)
-        startActivity(Intent.createChooser(intent, "Compartir imagen"))
-        *//*val intent = Intent(Intent.ACTION_SEND)
-        intent.type = "image/jpeg"
-        intent.putExtra(Intent.EXTRA_STREAM, imagePath)
-        startActivity(Intent.createChooser(intent, "Compartir imagen"))*//*
-    }*/
 
 }
