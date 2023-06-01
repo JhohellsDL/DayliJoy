@@ -21,7 +21,9 @@
         tools:layout="@layout/fragment_sentences" >
         <action
             android:id="@+id/action_sentencesFragment_to_newSentenceFragment"
-            app:destination="@id/newSentenceFragment" />
+            app:destination="@id/newSentenceFragment"
+            app:popUpTo="@id/sentencesFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/newSentenceFragment"
@@ -30,7 +32,9 @@
         tools:layout="@layout/fragment_new_sentence" >
         <action
             android:id="@+id/action_newSentenceFragment_to_positivePhraseFragment"
-            app:destination="@id/positivePhraseFragment" />
+            app:destination="@id/positivePhraseFragment"
+            app:popUpTo="@id/newSentenceFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/positivePhraseFragment"
@@ -39,6 +43,8 @@
         tools:layout="@layout/fragment_positive_phrase" >
         <action
             android:id="@+id/action_positivePhraseFragment_to_sentencesFragment"
-            app:destination="@id/sentencesFragment" />
+            app:destination="@id/sentencesFragment"
+            app:popUpTo="@id/positivePhraseFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

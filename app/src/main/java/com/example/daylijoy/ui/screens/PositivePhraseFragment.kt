@@ -23,7 +23,7 @@ class PositivePhraseFragment : Fragment() {
     ): View? {
         binding = FragmentPositivePhraseBinding.inflate(inflater)
 
-        binding.textPositivePhrase.text = provider.getPositivePhrase()
+        binding.textPositivePhrase.text = provider.getRandomPositivePhrase()
 
         binding.botonRegresar.setOnClickListener {
             it.findNavController().navigate(R.id.action_positivePhraseFragment_to_sentencesFragment)

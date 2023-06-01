@@ -3,44 +3,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorBackground"
     tools:context=".ui.screens.PositivePhraseFragment">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="16dp"
         android:orientation="vertical">
 
-        <!-- Imagen -->
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/web_view"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="16dp"
-            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="52dp"
+            app:layout_constraintTop_toTopOf="parent"
             android:src="@drawable/congrats"/>
 
-
-        <!-- Frase positiva -->
         <TextView
             android:id="@+id/text_positive_phrase"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gift"
-            android:textSize="18sp"
+            tools:text="La vida está llena de oportunidades, solo tienes que estar abierto a ellas."
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp" />
+            android:gravity="center"
+            android:textColor="@color/colorPrimaryText"
+            android:fontFamily="@font/roboto"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@id/web_view"/>
 
-        <!-- Botón para regresar al inicio -->
-        <Button
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/text_secondary"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="button atras"
-            android:layout_gravity="center_horizontal"
+            android:text="@string/text_final"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:textColor="@color/colorSecondaryText"
+            android:fontFamily="@font/roboto"
             android:layout_marginTop="16dp"
-            android:id="@+id/boton_regresar" />
+            app:layout_constraintTop_toBottomOf="@id/text_positive_phrase"/>
 
-    </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorSecondary"
+            android:text="@string/button_home"
+            android:textColor="@color/colorBackground"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/boton_regresar"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

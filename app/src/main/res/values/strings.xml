@@ -13,8 +13,10 @@
 
     <string name="hint_word">Sentence…</string>
     <string name="button_save">Save</string>
+    <string name="button_home">Close</string>
     <string name="sentence_saved">Sentence saved!.</string>
     <string name="empty_not_saved">Sentence not saved because it is empty.</string>
     <string name="add_word">Add sentence</string>
+    <string name="text_final">¡Excelente trabajo! Tu compromiso con el registro de cosas buenas te ayudará a apreciar las pequeñas alegrías de la vida. ¡Sigue así!</string>
 
 </resources>
