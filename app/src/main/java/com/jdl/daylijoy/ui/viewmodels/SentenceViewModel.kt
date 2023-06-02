@@ -29,7 +29,7 @@ class SentenceViewModel(private val repository: SentenceRepository) : ViewModel(
         uiScope.launch {
             repository.allSentences.let { listFlow ->
                 listFlow.collect {
-                    _allSentences.value = it
+                    _allSentences.value = it.reversed()
                 }
             }
         }

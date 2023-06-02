@@ -17,7 +17,7 @@
             android:id="@+id/web_view"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="32dp"
             android:src="@drawable/congrats"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,11 +25,11 @@
             android:id="@+id/text_positive_phrase"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/roboto"
             android:gravity="center"
             android:textColor="@color/colorPrimaryText"
-            android:textSize="24sp"
+            android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/web_view"
             tools:text="La vida está llena de oportunidades, solo tienes que estar abierto a ellas." />
@@ -45,14 +45,6 @@
             android:textColor="@color/colorSecondaryText"
             android:textSize="12sp"
             app:layout_constraintTop_toBottomOf="@id/text_positive_phrase" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:scaleType="fitCenter"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -130,7 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="32dp"
             android:backgroundTint="@color/colorSecondary"
             android:text="@string/button_home"
             android:textColor="@color/colorBackground"

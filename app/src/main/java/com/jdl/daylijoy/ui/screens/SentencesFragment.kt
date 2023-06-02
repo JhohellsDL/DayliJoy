@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.jdl.daylijoy.DailyJoyApplication
 import com.jdl.daylijoy.R
 import com.jdl.daylijoy.databinding.FragmentSentencesBinding
-import com.jdl.daylijoy.DailyJoyApplication
 import com.jdl.daylijoy.ui.adapters.SentencesListAdapter
 import com.jdl.daylijoy.ui.viewmodels.SentenceViewModel
 import com.jdl.daylijoy.ui.viewmodels.SentenceViewModelFactory

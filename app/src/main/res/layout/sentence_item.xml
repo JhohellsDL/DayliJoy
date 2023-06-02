@@ -2,33 +2,56 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/text_sentence"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:fontFamily="@font/roboto"
-        android:textColor="@color/colorPrimaryText"
-        android:textSize="14sp"
-        android:gravity="center_vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Mi lindo dia" />
-
-    <TextView
-        android:id="@+id/text_date"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_share_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorSecondaryText"
-        android:textSize="12sp"
-        android:fontFamily="@font/roboto"
-        android:gravity="center_vertical"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginVertical="8dp"
+        android:backgroundTint="@color/white"
+        android:translationZ="4dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_sentence"
-        tools:text="yyyy-MM-dd'T'HH:mm:ss'Z'" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/text_sentence"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:fontFamily="@font/roboto"
+                android:gravity="center_vertical"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Gracias por darme tiempo" />
+
+            <TextView
+                android:id="@+id/text_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:gravity="center_vertical"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_sentence"
+                tools:text="05/06/2023" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

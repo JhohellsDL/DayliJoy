@@ -12,14 +12,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.jdl.daylijoy.R
 import com.jdl.daylijoy.data.providers.PhraseProvider
-import com.jdl.daylijoy.databinding.FragmentPositivePhraseBinding
 import com.jdl.daylijoy.data.repositories.PhraseRepository
+import com.jdl.daylijoy.databinding.FragmentPositivePhraseBinding
 import java.io.IOException
 import java.io.OutputStream
 
@@ -28,17 +27,14 @@ class PositivePhraseFragment : Fragment() {
     private lateinit var binding: FragmentPositivePhraseBinding
 
     private val provider: PhraseRepository = PhraseRepository(PhraseProvider())
-    private lateinit var imageView: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentPositivePhraseBinding.inflate(inflater)
 
         binding.textPositivePhrase.text = provider.getRandomPositivePhrase()
-
-        imageView = binding.imageView
 
         binding.cardViewShareImage.setOnClickListener {
             captureAndSaveImage()
@@ -55,14 +51,16 @@ class PositivePhraseFragment : Fragment() {
     }
 
     private fun captureAndSaveImage() {
-        // Capture the screenshot
-        //val viewToCapture = requireParentFragment() // Replace with the view you want to capture
+
+        var message = "¡Excelente trabajo! Tu compromiso con el registro de cosas buenas te ayudará a apreciar las pequeñas alegrías de la vida. ¡Sigue así!\n\n"
+        message += "https://play.google.com/store/apps/details?id=com.jdl.daylijoy"
+
         val screenshot = captureFragmentScreen(requireParentFragment())
         val imagePath = screenshot?.let {
             saveImage(it)
         }
         if (imagePath != null) {
-            shareImage(imagePath)
+            shareImage(imagePath, message)
         } else {
             Toast.makeText(requireContext(), " no hay captura!", Toast.LENGTH_SHORT).show()
         }
@@ -73,7 +71,7 @@ class PositivePhraseFragment : Fragment() {
         val view = fragment.view
 
         val bitmap =
-            view?.let { Bitmap.createBitmap(it.width, view.height, Bitmap.Config.ARGB_8888) }
+            view?.let { Bitmap.createBitmap(it.width, view.height-500, Bitmap.Config.ARGB_8888) }
 
         val canvas = bitmap?.let { Canvas(it) }
         if (view != null) {
@@ -98,7 +96,7 @@ class PositivePhraseFragment : Fragment() {
 
         val resolver = requireContext().contentResolver
         var outputStream: OutputStream? = null
-        var imageUri: Uri? = null
+        var imageUri: Uri?
         try {
             val contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
             imageUri = resolver.insert(contentUri, contentValues)
@@ -122,11 +120,11 @@ class PositivePhraseFragment : Fragment() {
         return imageUri
     }
 
-    private fun shareImage(imagePath: Uri) {
+    private fun shareImage(imagePath: Uri, message: String) {
         val intent = Intent(Intent.ACTION_SEND_MULTIPLE)
         intent.type = "image/jpeg"
         intent.putExtra(Intent.EXTRA_STREAM, imagePath)
-        intent.putExtra(Intent.EXTRA_TEXT, "hola!!!!")
+        intent.putExtra(Intent.EXTRA_TEXT, message)
         startActivity(Intent.createChooser(intent, "Compartir imagen"))
     }
 

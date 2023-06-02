@@ -56,15 +56,9 @@ abstract class SentenceRoomDatabase : RoomDatabase() {
             sentenceDao.deleteAll()
 
             //Add sample sentences
-            var sentence = SentenceEntity(
+            val sentence = SentenceEntity(
                 sentence = "My firs sentence",
                 date = "ayer"
-            )
-            sentenceDao.insert(sentence)
-
-            sentence = SentenceEntity(
-                sentence = "My second sentence",
-                date = "hoy"
             )
             sentenceDao.insert(sentence)
 
