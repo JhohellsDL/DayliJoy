@@ -1,9 +1,6 @@
-package com.jdl.daylijoy.data.repositories
+package com.jdll.daylijoy.data.repositories
 
-import com.jdl.daylijoy.data.daos.SentenceDao
-import com.jdl.daylijoy.data.entities.SentenceEntity
-import com.jdl.daylijoy.data.providers.PhraseProvider
-import kotlinx.coroutines.flow.Flow
+import com.jdll.daylijoy.data.providers.PhraseProvider
 import kotlin.random.Random
 
 class PhraseRepository(

@@ -1,4 +1,4 @@
-package com.example.daylijoy.ui.screens
+package com.jdll.daylijoy.ui.screens
 
 import android.os.Bundle
 import android.view.LayoutInflater

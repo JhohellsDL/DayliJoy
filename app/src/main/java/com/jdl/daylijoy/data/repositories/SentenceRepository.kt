@@ -1,7 +1,7 @@
-package com.jdl.daylijoy.data.repositories
+package com.jdll.daylijoy.data.repositories
 
-import com.jdl.daylijoy.data.daos.SentenceDao
-import com.jdl.daylijoy.data.entities.SentenceEntity
+import com.jdll.daylijoy.data.daos.SentenceDao
+import com.jdll.daylijoy.data.entities.SentenceEntity
 import kotlinx.coroutines.flow.Flow
 
 class SentenceRepository(private val sentenceDao: SentenceDao) {

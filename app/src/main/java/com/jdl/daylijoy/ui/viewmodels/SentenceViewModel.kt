@@ -1,10 +1,10 @@
-package com.jdl.daylijoy.ui.viewmodels
+package com.jdll.daylijoy.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.jdl.daylijoy.data.entities.SentenceEntity
-import com.jdl.daylijoy.data.repositories.SentenceRepository
+import com.jdll.daylijoy.data.entities.SentenceEntity
+import com.jdll.daylijoy.data.repositories.SentenceRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

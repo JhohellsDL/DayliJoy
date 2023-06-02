@@ -1,7 +1,8 @@
-package com.jdl.daylijoy
+package com.jdll.daylijoy
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.daylijoy.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

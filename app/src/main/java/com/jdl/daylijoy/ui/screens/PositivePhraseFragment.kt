@@ -1,4 +1,4 @@
-package com.jdl.daylijoy.ui.screens
+package com.jdll.daylijoy.ui.screens
 
 import android.content.Intent
 import android.graphics.Bitmap
@@ -13,10 +13,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.jdl.daylijoy.R
-import com.jdl.daylijoy.data.providers.PhraseProvider
-import com.jdl.daylijoy.data.repositories.PhraseRepository
-import com.jdl.daylijoy.databinding.FragmentPositivePhraseBinding
+import com.example.daylijoy.R
+import com.example.daylijoy.databinding.FragmentPositivePhraseBinding
+import com.jdll.daylijoy.data.providers.PhraseProvider
+import com.jdll.daylijoy.data.repositories.PhraseRepository
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
