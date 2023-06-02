@@ -9,14 +9,15 @@
     <string name="app_description2">El reto esta en no repetir ninguna!.</string>
     <string name="start_button">Comenzar</string>
     <string name="logo_desc">Logo de la aplicación</string>
-    <string name="add_sentence">Add Sentence</string>
+    <string name="add_sentence">Añadir algo bueno.</string>
 
-    <string name="hint_word">Sentence…</string>
-    <string name="button_save">Save</string>
-    <string name="button_home">Close</string>
-    <string name="sentence_saved">Sentence saved!.</string>
-    <string name="empty_not_saved">Sentence not saved because it is empty.</string>
-    <string name="add_word">Add sentence</string>
+    <string name="hint_word">Escribe algo bueno</string>
+    <string name="button_save">Guardar</string>
+    <string name="button_home">Cerrar</string>
+    <string name="sentence_saved">Guardado correctamente!.</string>
+    <string name="empty_not_saved">No se puede guardar.</string>
+    <string name="add_word">Añadir algo bueno.</string>
     <string name="text_final">¡Excelente trabajo! Tu compromiso con el registro de cosas buenas te ayudará a apreciar las pequeñas alegrías de la vida. ¡Sigue así!</string>
+    <string name="cosa_buena">Cosa Buena</string>
 
 </resources>
