@@ -26,7 +26,7 @@
             ads:layout_constraintStart_toStartOf="parent"
             ads:layout_constraintEnd_toEndOf="parent"
             ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+            ads:adUnitId="ca-app-pub-8897050281816485/4326187738">
         </com.google.android.gms.ads.AdView>
 
         <ImageView

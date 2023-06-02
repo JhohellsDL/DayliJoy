@@ -16,10 +16,10 @@
         android:theme="@style/Theme.DayliJoy"
         tools:targetApi="31">
 
-        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        <!-- ID REAL AdMob App ID: ca-app-pub-8897050281816485~5096343924 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-8897050281816485~5096343924"/>
 
         <activity
             android:name="com.jdl.daylijoy.MainActivity"

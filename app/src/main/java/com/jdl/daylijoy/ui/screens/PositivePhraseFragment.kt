@@ -15,6 +15,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.jdl.daylijoy.R
 import com.jdl.daylijoy.data.providers.PhraseProvider
 import com.jdl.daylijoy.data.repositories.PhraseRepository
@@ -27,12 +31,28 @@ class PositivePhraseFragment : Fragment() {
     private lateinit var binding: FragmentPositivePhraseBinding
 
     private val provider: PhraseRepository = PhraseRepository(PhraseProvider())
-
+    private var mInterstitialAd: InterstitialAd? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentPositivePhraseBinding.inflate(inflater)
+
+
+        val adRequest = AdRequest.Builder().build()
+
+        InterstitialAd.load(this.requireContext(),"ca-app-pub-8897050281816485/2544549811", adRequest, object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                adError?.toString()?.let { Log.d("asd", it) }
+                mInterstitialAd = null
+            }
+
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                Log.d("asd", "Ad was loaded.")
+                mInterstitialAd = interstitialAd
+            }
+        })
+
 
         binding.textPositivePhrase.text = provider.getRandomPositivePhrase()
 
@@ -44,6 +64,11 @@ class PositivePhraseFragment : Fragment() {
         }
 
         binding.botonRegresar.setOnClickListener {
+            if (mInterstitialAd != null) {
+                mInterstitialAd?.show(requireActivity())
+            } else {
+                Log.d("TAG", "The interstitial ad wasn't ready yet.")
+            }
             it.findNavController().navigate(R.id.action_positivePhraseFragment_to_sentencesFragment)
         }
 
@@ -52,7 +77,7 @@ class PositivePhraseFragment : Fragment() {
 
     private fun captureAndSaveImage() {
 
-        var message = "¡Excelente trabajo! Tu compromiso con el registro de cosas buenas te ayudará a apreciar las pequeñas alegrías de la vida. ¡Sigue así!\n\n"
+        var message = "¡Hoy tuve un día increíble! Registré 5 cosas buenas en mi app. #CosasBuenas #Positividad\n\n¡Echa un vistazo a esta increíble aplicación\n"
         message += "https://play.google.com/store/apps/details?id=com.jdl.daylijoy"
 
         val screenshot = captureFragmentScreen(requireParentFragment())
@@ -62,7 +87,7 @@ class PositivePhraseFragment : Fragment() {
         if (imagePath != null) {
             shareImage(imagePath, message)
         } else {
-            Toast.makeText(requireContext(), " no hay captura!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Oops!", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -76,7 +101,6 @@ class PositivePhraseFragment : Fragment() {
         val canvas = bitmap?.let { Canvas(it) }
         if (view != null) {
             view.draw(canvas)
-            Log.i("asd", "-- si hay captura dentro!")
         } else {
             Log.i("asd", "-- no hay captura dentro!")
         }
@@ -100,7 +124,6 @@ class PositivePhraseFragment : Fragment() {
         try {
             val contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
             imageUri = resolver.insert(contentUri, contentValues)
-            Log.i("asd", "-- sse guardo! $imageUri")
             imageUri?.let {
                 outputStream = resolver.openOutputStream(it)
                 image.compress(Bitmap.CompressFormat.JPEG, 90, outputStream)

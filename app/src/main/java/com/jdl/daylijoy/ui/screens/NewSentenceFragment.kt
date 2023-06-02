@@ -15,11 +15,13 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
-import com.jdl.daylijoy.R
-import com.jdl.daylijoy.databinding.FragmentNewSentenceBinding
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import com.google.android.material.snackbar.Snackbar
 import com.jdl.daylijoy.DailyJoyApplication
+import com.jdl.daylijoy.R
 import com.jdl.daylijoy.data.entities.SentenceEntity
+import com.jdl.daylijoy.databinding.FragmentNewSentenceBinding
 import com.jdl.daylijoy.ui.viewmodels.SentenceViewModel
 import com.jdl.daylijoy.ui.viewmodels.SentenceViewModelFactory
 import java.time.LocalDate
@@ -35,6 +37,18 @@ class NewSentenceFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentNewSentenceBinding.inflate(inflater)
+
+
+        // Initialize the Mobile Ads SDK with an AdMob App ID.
+        MobileAds.initialize(this.requireContext()) {}
+
+        // Create an ad request.
+        val adRequest = AdRequest.Builder().build()
+
+        // Start loading the ad in the background.
+        binding.adView.loadAd(adRequest)
+
+
 
         val application = requireNotNull(this.activity).application
 

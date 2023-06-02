@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import com.jdl.daylijoy.DailyJoyApplication
 import com.jdl.daylijoy.R
 import com.jdl.daylijoy.databinding.FragmentSentencesBinding
@@ -24,6 +26,16 @@ class SentencesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSentencesBinding.inflate(inflater)
+
+        // Initialize the Mobile Ads SDK with an AdMob App ID.
+        MobileAds.initialize(this.requireContext()) {}
+
+        // Create an ad request.
+        val adRequest = AdRequest.Builder().build()
+
+        // Start loading the ad in the background.
+        binding.adView.loadAd(adRequest)
+
 
         val recyclerView = binding.recyclerviewSentences
         val adapter = SentencesListAdapter()
