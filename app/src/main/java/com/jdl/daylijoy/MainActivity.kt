@@ -1,4 +1,4 @@
-package com.example.daylijoy
+package com.jdl.daylijoy
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

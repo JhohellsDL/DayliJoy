@@ -1,4 +1,4 @@
-package com.example.daylijoy.ui.screens
+package com.jdl.daylijoy.ui.screens
 
 import android.os.Build
 import android.os.Bundle
@@ -15,12 +15,12 @@ import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
-import com.example.daylijoy.DailyJoyApplication
-import com.example.daylijoy.R
-import com.example.daylijoy.data.entities.SentenceEntity
-import com.example.daylijoy.databinding.FragmentNewSentenceBinding
-import com.example.daylijoy.ui.viewmodels.SentenceViewModel
-import com.example.daylijoy.ui.viewmodels.SentenceViewModelFactory
+import com.jdl.daylijoy.DailyJoyApplication
+import com.jdl.daylijoy.R
+import com.jdl.daylijoy.data.entities.SentenceEntity
+import com.jdl.daylijoy.databinding.FragmentNewSentenceBinding
+import com.jdl.daylijoy.ui.viewmodels.SentenceViewModel
+import com.jdl.daylijoy.ui.viewmodels.SentenceViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter

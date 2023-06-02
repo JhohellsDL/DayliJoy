@@ -1,8 +1,8 @@
-package com.example.daylijoy.data.repositories
+package com.jdl.daylijoy.data.repositories
 
-import com.example.daylijoy.data.daos.SentenceDao
-import com.example.daylijoy.data.entities.SentenceEntity
-import com.example.daylijoy.data.providers.PhraseProvider
+import com.jdl.daylijoy.data.daos.SentenceDao
+import com.jdl.daylijoy.data.entities.SentenceEntity
+import com.jdl.daylijoy.data.providers.PhraseProvider
 import kotlinx.coroutines.flow.Flow
 import kotlin.random.Random
 

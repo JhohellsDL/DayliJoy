@@ -1,4 +1,4 @@
-package com.example.daylijoy
+package com.jdl.daylijoy
 
 import org.junit.Test
 

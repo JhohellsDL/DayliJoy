@@ -1,4 +1,4 @@
-package com.example.daylijoy.data.entities
+package com.jdl.daylijoy.data.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -17,9 +17,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.daylijoy.R
-import com.example.daylijoy.data.providers.PhraseProvider
-import com.example.daylijoy.data.repositories.PhraseRepository
 import com.example.daylijoy.databinding.FragmentPositivePhraseBinding
+import com.jdl.daylijoy.data.providers.PhraseProvider
+import com.jdl.daylijoy.data.repositories.PhraseRepository
 import java.io.IOException
 import java.io.OutputStream
 
@@ -41,7 +41,7 @@ class PositivePhraseFragment : Fragment() {
 
         imageView = binding.imageView
 
-        binding.btnShare.setOnClickListener {
+        binding.cardViewShareImage.setOnClickListener {
             captureAndSaveImage()
         }
 

@@ -1,8 +1,8 @@
-package com.example.daylijoy.ui.viewmodels
+package com.jdl.daylijoy.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.daylijoy.data.repositories.SentenceRepository
+import com.jdl.daylijoy.data.repositories.SentenceRepository
 
 @Suppress("UNCHECKED_CAST")
 class SentenceViewModelFactory(

@@ -1,8 +1,8 @@
-package com.example.daylijoy
+package com.jdl.daylijoy
 
 import android.app.Application
-import com.example.daylijoy.data.SentenceRoomDatabase
-import com.example.daylijoy.data.repositories.SentenceRepository
+import com.jdl.daylijoy.data.SentenceRoomDatabase
+import com.jdl.daylijoy.data.repositories.SentenceRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 

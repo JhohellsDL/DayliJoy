@@ -1,4 +1,4 @@
-package com.example.daylijoy.data.providers
+package com.jdl.daylijoy.data.providers
 
 class PhraseProvider {
     fun loadListPositivePhrase(): List<String> {

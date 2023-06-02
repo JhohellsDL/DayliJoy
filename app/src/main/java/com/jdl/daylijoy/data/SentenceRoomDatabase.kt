@@ -1,12 +1,12 @@
-package com.example.daylijoy.data
+package com.jdl.daylijoy.data
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.daylijoy.data.daos.SentenceDao
-import com.example.daylijoy.data.entities.SentenceEntity
+import com.jdl.daylijoy.data.daos.SentenceDao
+import com.jdl.daylijoy.data.entities.SentenceEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

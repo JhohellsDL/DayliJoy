@@ -1,12 +1,12 @@
-package com.example.daylijoy.ui.adapters
+package com.jdl.daylijoy.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.daylijoy.data.entities.SentenceEntity
-import com.example.daylijoy.databinding.SentenceItemBinding
+import com.jdl.daylijoy.data.entities.SentenceEntity
+import com.jdl.daylijoy.databinding.SentenceItemBinding
 
 class SentencesListAdapter :
     ListAdapter<SentenceEntity, SentencesListAdapter.SentenceViewHolder>(SentencesComparator()) {
