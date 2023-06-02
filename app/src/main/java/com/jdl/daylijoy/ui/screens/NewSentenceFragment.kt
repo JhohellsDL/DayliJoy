@@ -4,7 +4,6 @@ import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,15 +12,16 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
-import com.jdl.daylijoy.DailyJoyApplication
 import com.jdl.daylijoy.R
-import com.jdl.daylijoy.data.entities.SentenceEntity
 import com.jdl.daylijoy.databinding.FragmentNewSentenceBinding
+import com.google.android.material.snackbar.Snackbar
+import com.jdl.daylijoy.DailyJoyApplication
+import com.jdl.daylijoy.data.entities.SentenceEntity
 import com.jdl.daylijoy.ui.viewmodels.SentenceViewModel
 import com.jdl.daylijoy.ui.viewmodels.SentenceViewModelFactory
-import com.google.android.material.snackbar.Snackbar
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 

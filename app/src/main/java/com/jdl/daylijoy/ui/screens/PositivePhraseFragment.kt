@@ -2,35 +2,26 @@ package com.jdl.daylijoy.ui.screens
 
 import android.content.ContentValues
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import android.Manifest
-import androidx.core.app.ActivityCompat
-import androidx.core.view.drawToBitmap
 import com.jdl.daylijoy.R
 import com.jdl.daylijoy.data.providers.PhraseProvider
-import com.jdl.daylijoy.data.repositories.PhraseRepository
 import com.jdl.daylijoy.databinding.FragmentPositivePhraseBinding
-import java.io.File
-import java.io.FileOutputStream
+import com.jdl.daylijoy.data.repositories.PhraseRepository
 import java.io.IOException
+import java.io.OutputStream
 
 class PositivePhraseFragment : Fragment() {
 
@@ -38,7 +29,6 @@ class PositivePhraseFragment : Fragment() {
 
     private val provider: PhraseRepository = PhraseRepository(PhraseProvider())
     private lateinit var imageView: ImageView
-    private val REQUEST_PERMISSION = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,11 +40,11 @@ class PositivePhraseFragment : Fragment() {
 
         imageView = binding.imageView
 
-        binding.btnShare.setOnClickListener {
+        binding.cardViewShareImage.setOnClickListener {
+            captureAndSaveImage()
+        }
+        binding.cardViewShareMessage.setOnClickListener{
             shareAppLink()
-            /*val screenshot = takeScreenshot(binding.root)
-            val imagePath = saveImage(screenshot)
-            shareImage(imagePath!!)*/
         }
 
         binding.botonRegresar.setOnClickListener {
@@ -64,26 +54,60 @@ class PositivePhraseFragment : Fragment() {
         return binding.root
     }
 
-    private fun takeScreenshot(view: View): Bitmap {
-        val screenshot = Bitmap.createBitmap(view.width, view.height-400, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(screenshot)
-        canvas.drawColor(Color.WHITE)
-        view.draw(canvas)
-        return screenshot
+    private fun captureAndSaveImage() {
+        // Capture the screenshot
+        //val viewToCapture = requireParentFragment() // Replace with the view you want to capture
+        val screenshot = captureFragmentScreen(requireParentFragment())
+        val imagePath = screenshot?.let {
+            saveImage(it)
+        }
+        if (imagePath != null) {
+            shareImage(imagePath)
+        } else {
+            Toast.makeText(requireContext(), " no hay captura!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun captureFragmentScreen(fragment: Fragment): Bitmap? {
+
+        val view = fragment.view
+
+        val bitmap =
+            view?.let { Bitmap.createBitmap(it.width, view.height, Bitmap.Config.ARGB_8888) }
+
+        val canvas = bitmap?.let { Canvas(it) }
+        if (view != null) {
+            view.draw(canvas)
+            Log.i("asd", "-- si hay captura dentro!")
+        } else {
+            Log.i("asd", "-- no hay captura dentro!")
+        }
+
+        return bitmap
     }
 
     private fun saveImage(image: Bitmap): Uri? {
-        val imagesFolder = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "MyAppScreenshots")
-        if (!imagesFolder.exists()) {
-            imagesFolder.mkdirs()
+        val contentValues = ContentValues().apply {
+            put(MediaStore.MediaColumns.DISPLAY_NAME, "screenshot.jpg")
+            put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
+            put(
+                MediaStore.MediaColumns.RELATIVE_PATH,
+                Environment.DIRECTORY_PICTURES + "/MyAppScreenshots"
+            )
         }
 
-        val imageFile = File(imagesFolder, "screenshot.jpg")
-        var outputStream: FileOutputStream? = null
+        val resolver = requireContext().contentResolver
+        var outputStream: OutputStream? = null
+        var imageUri: Uri? = null
         try {
-            outputStream = FileOutputStream(imageFile)
-            image.compress(Bitmap.CompressFormat.JPEG, 90, outputStream)
-            outputStream.flush()
+            val contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            imageUri = resolver.insert(contentUri, contentValues)
+            Log.i("asd", "-- sse guardo! $imageUri")
+            imageUri?.let {
+                outputStream = resolver.openOutputStream(it)
+                image.compress(Bitmap.CompressFormat.JPEG, 90, outputStream)
+                outputStream?.flush()
+            }
         } catch (e: IOException) {
             e.printStackTrace()
             return null
@@ -95,19 +119,18 @@ class PositivePhraseFragment : Fragment() {
             }
         }
 
-        return Uri.fromFile(imageFile)
+        return imageUri
     }
 
     private fun shareImage(imagePath: Uri) {
         val intent = Intent(Intent.ACTION_SEND_MULTIPLE)
         intent.type = "image/jpeg"
         intent.putExtra(Intent.EXTRA_STREAM, imagePath)
+        intent.putExtra(Intent.EXTRA_TEXT, "hola!!!!")
         startActivity(Intent.createChooser(intent, "Compartir imagen"))
     }
 
     private fun shareAppLink() {
-        val appPackageName = requireContext() // Obtén el nombre de tu paquete de la aplicación
-
         try {
             val shareIntent = Intent(Intent.ACTION_SEND)
             shareIntent.type = "text/plain"

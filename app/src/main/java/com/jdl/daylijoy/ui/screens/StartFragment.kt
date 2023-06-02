@@ -1,12 +1,11 @@
 package com.jdl.daylijoy.ui.screens
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.jdl.daylijoy.R
 import com.jdl.daylijoy.databinding.FragmentStartBinding
 
